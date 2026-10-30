@@ -1,0 +1,79 @@
+/* ---- Vista consultor ---- */
+.semana-nav { margin-left: auto; display: flex; align-items: center; gap: 6px; padding-bottom: 4px; font-weight: 600; font-size: 13px; }
+.semana-nav button { border: 1px solid var(--border); background: #fff; border-radius: 6px; padding: 4px 10px; cursor: pointer; color: var(--text); }
+.semana-nav .hoy-btn { background: var(--primary); color: #fff; border-color: var(--primary); }
+.main-consultor { flex: 1; min-height: 0; padding: 12px; overflow: auto; }
+.kanban-consultor { display: grid; grid-template-columns: 1fr 300px; gap: 12px; align-items: start; }
+.panel { background: var(--card); border-radius: 10px; padding: 14px; }
+.panel h3 { margin-bottom: 10px; font-size: 15px; }
+.rojo { color: #dc2626; }
+.hint { color: var(--muted); font-size: 12px; margin: 4px 0 8px; }
+.form-ok { background: #dcfce7; color: #166534; padding: 8px 12px; border-radius: 6px; margin: 8px 0; }
+.form-warn { background: #fef3c7; color: #92400e; padding: 8px 12px; border-radius: 6px; margin: 8px 0; }
+
+.resumen { display: grid; grid-template-columns: 260px 1fr 240px; grid-template-areas: "asig sem res" "asig det det"; gap: 12px; align-items: start; }
+.asignados { grid-area: asig; }
+.semana { grid-area: sem; }
+.resumen-sem { grid-area: res; }
+.detalle-dia { grid-area: det; min-width: 0; }
+.asignados ul { list-style: none; margin: 10px 0 0; padding: 0; display: flex; flex-direction: column; gap: 6px; max-height: 480px; overflow: auto; }
+.asignados li { display: flex; align-items: center; gap: 8px; }
+.asignados .cod { font-weight: 700; white-space: nowrap; }
+.desc-corta { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--muted); }
+.add { width: 24px; height: 24px; border: 1px solid #86efac; background: #f0fdf4; color: #16a34a; border-radius: 4px; cursor: pointer; font-weight: 700; }
+.add:disabled { opacity: .4; cursor: default; }
+.dias { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; }
+.dia-card { border: 1px solid var(--border); background: #f8fafc; border-radius: 8px; padding: 8px 4px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 12px; color: var(--muted); }
+.dia-card strong { font-size: 24px; color: var(--text); }
+.dia-card strong.rojo { color: #dc2626; }
+.dia-card.sel { background: #dbeafe; border-color: var(--primary); }
+.resumen-sem dl { display: grid; grid-template-columns: 1fr auto; gap: 6px 12px; margin: 0; }
+.resumen-sem dd { margin: 0; font-weight: 700; text-align: right; }
+.resumen-sem dt { color: var(--muted); }
+.detalle-head { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+.acciones { display: flex; gap: 8px; }
+.tabla-wrap { overflow-x: auto; }
+.tabla { width: 100%; border-collapse: collapse; font-size: 13px; }
+.tabla th { background: #f1f5f9; text-align: left; padding: 8px; font-size: 12px; white-space: nowrap; }
+.tabla td { padding: 6px 8px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+.tabla tr[draggable="true"] { cursor: grab; }
+.tabla tr.arrastrando { opacity: .4; }
+.tabla .orden { color: var(--muted); white-space: nowrap; }
+.tabla input.n { width: 64px; text-align: center; }
+.tabla input:disabled { background: #f1f5f9; color: var(--muted); }
+.tabla tr.total td { font-weight: 700; background: #eff6ff; border-bottom: 0; }
+.x-row { border: 0; background: none; color: #dc2626; font-size: 20px; cursor: pointer; }
+.x-row:disabled { opacity: .3; cursor: default; }
+
+/* Linea de tiempo */
+.timeline { display: grid; grid-template-columns: 1fr 300px; gap: 12px; align-items: start; }
+.gantt { display: grid; grid-template-columns: 110px minmax(120px, 1fr) 100px minmax(300px, 4fr); font-size: 13px; overflow-x: auto; }
+.g-head { background: #f1f5f9; font-weight: 700; padding: 8px; }
+.g-head.g-dias { display: grid; grid-template-columns: repeat(5, 1fr); padding: 0; }
+.g-row { display: contents; }
+.g-row > div { border-bottom: 1px solid var(--border); }
+.g-dia { padding: 8px 4px; text-align: center; }
+.g-dia.hoy { background: #dbeafe; }
+.alerta { color: #dc2626; margin-left: 4px; }
+.g-ticket, .g-desc, .g-fecha { padding: 10px 8px; }
+.g-desc { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.g-track { display: grid; grid-template-columns: repeat(5, 1fr); grid-template-rows: 1fr; min-height: 38px; }
+.g-celda { grid-row: 1; border-left: 1px solid var(--border); }
+.g-celda.hoy { background: #eff6ff; }
+.g-barra { grid-row: 1; align-self: center; height: 16px; border-radius: 4px; opacity: .85; margin: 0 2px; }
+.g-barra.mini { display: inline-block; width: 28px; vertical-align: middle; background: #60a5fa; }
+.g-hito { grid-row: 1; align-self: center; justify-self: center; color: #dc2626; font-size: 18px; z-index: 1; }
+.entregas ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.entregas li { display: flex; align-items: center; gap: 8px; }
+.entregas li span:first-child { font-weight: 700; min-width: 44px; }
+.leyenda-t { margin-top: 16px; }
+.leyenda { font-size: 12px; color: var(--muted); }
+.hoy-box { display: inline-block; width: 14px; height: 14px; background: #dbeafe; vertical-align: middle; }
+
+@media (max-width: 1100px) {
+  .resumen { grid-template-columns: 1fr; grid-template-areas: "sem" "res" "asig" "det"; }
+  .timeline, .kanban-consultor { grid-template-columns: 1fr; }
+}
+
+.form-sep { margin: 16px 0 8px; font-size: 12px; font-weight: 600; color: var(--muted); border-top: 1px solid var(--border); padding-top: 12px; }
+.link-btn { border: 0; background: none; color: var(--primary); cursor: pointer; font-weight: 600; }

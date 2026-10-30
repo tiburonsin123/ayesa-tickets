@@ -1,0 +1,16 @@
+# Levanta PostgreSQL local:  docker compose up -d
+services:
+  db:
+    image: postgres:16
+    container_name: ayesa-db
+    environment:
+      POSTGRES_DB: ayesa
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - ayesa-data:/var/lib/postgresql/data
+
+volumes:
+  ayesa-data:

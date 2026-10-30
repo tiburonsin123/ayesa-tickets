@@ -1,0 +1,14 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /api   # el frontend llama a http://localhost:8080/api/...
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/ayesa
+    username: postgres
+    password: postgres
+  jpa:
+    hibernate:
+      ddl-auto: update   # solo para desarrollo; luego migrar a Flyway
+    open-in-view: false
